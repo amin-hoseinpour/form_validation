@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اعتبارسنجی فرم ها سمت کاربر</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .project-title {
+            text-align: center;
+            padding: 5px;
+            font-size: 16px;
+            color: #000;
+        }
+
+        body {
+            background-color: #efefef;
+        }
+        button {
+            border: 0;
+            padding: 6px 20px;
+            background-color: #57a5ff;
+            color: #fff;
+            font-size: 16px;
+
+        }
+        .container {
+            max-width: 760px;
+            background: #fff;
+            padding: 50px;
+        box-shadow: 0 0 10px rgba(0,0,0,.2);
+            margin: auto;
+            border-radius: 5px;
+        }
+
+        .container form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        input {
+            margin-bottom: 25px;
+            width: 100%;
+            height: 40px;
+            border: 1px solid #efefef;
+            padding-right: 10px;
+            border-radius: 2px;
+            outline: 0;
+        }
+
+        .input-group {
+            width: 100%;
+            position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            right: 10px;
+            top: 13px;
+            font-size: 16px;
+            opacity: 0;
+            color: rgb(19, 189, 19);
+            transition: all .5s ease;
+        }
+
+        input[type=tel] {
+            direction: ltr;
+        }
+
+        input[type=tel]:valid~i#true {
+            opacity: 1;
+        }
+
+        input[type=tel]:invalid~i#false {
+            opacity: 1;
+        }
+
+        /* input[type=tel]:valid {
+            background-color: #32ca76;
+        } */
+
+        /* input[type=tel]:invalid {
+            background-color: red;
+        } */
+    </style>
+</head>
+
+<body>
+    <p class="project-title">اعتبارسنجی فرم ها سمت کاربر</p>
+    <div class="container">
+        <form action="" autocomplete="off" >
+            <div class="input-group">
+                <input type="tel" pattern="^(\+98|0)?9\d{9}$" value="" placeholder="+98" required autofocus>
+                <i class="far fa-check-circle" id="true"></i>
+                <i class="far fa-times-circle" id="false"></i>
+            </div>
+            <input type="text"
+                oninvalid="this.setCustomValidity(' نام کاربری باید شامل حروف کوچک و بزرگ لاتین,کارکتر های @,$ و اعداد 0 تا 9 باشد. ')"
+                pattern="[A-Za-z0-9$@]{3,6}" placeholder="نام ..."   required>           
+            <input type="email" placeholder="ایمیل ..."    required>
+            <input type="text"  pattern="[A-Za-z0-9_]{1,15}" placeholder="نام کاربری .." minlength="5" maxlength="8"  required>            
+            <input type="date"  max="2022-12-31"   min="2000-01-01">
+            <input type="range" min="20" max="35">
+
+            <input  type="url" placeholder="وب سایت ..."  oninvalid="this.setCustomValidity('آدرس سایت را درست وار کن')"  required>
+
+            <button>ثبت نام</button>
+        </form>
+    </div>
+</body>
+
+</html>
